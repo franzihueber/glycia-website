@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Datenschutz – Glycia</title>
+<meta name="description" content="Datenschutzerklärung der App und Webseite Glycia.">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+/* Layout: eine ruhige Spalte wie ein Notizbuch; das Logo setzt Farbe, alles andere bleibt leise. */
+:root {
+  --paper: #FEF9F4;      /* Hintergrund aus dem Logo */
+  --paper-2: #F7EEE6;    /* abgesetzte Flächen */
+  --ink: #2A1F1C;        /* Text, warmes Dunkelbraun */
+  --ink-2: #6B5A54;      /* Nebentext */
+  --line: #EADBD0;       /* Linien */
+  --red: #C21F2A;        /* Akzent: Rot aus dem Schriftzug */
+  --leaf: #4D7A3A;       /* zweiter Akzent: Blattgrün */
+  --leaf-soft: #E5EEDC;
+  --mark: #FFF1B8;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 var(--sans); }
+a { color: var(--red); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--leaf); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 20px; }
+header.top { padding-block: 18px; border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+header.top img { height: 40px; width: auto; display: block; }
+nav.main { display: flex; gap: 18px; flex-wrap: wrap; font-size: 15px; }
+nav.main a { color: var(--ink-2); text-decoration: none; }
+nav.main a:hover, nav.main a[aria-current="page"] { color: var(--red); }
+main { padding-block: 40px 64px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.2; text-wrap: balance; color: var(--ink); }
+h1 { font-size: clamp(30px, 5vw, 46px); margin: 0 0 16px; letter-spacing: -0.01em; }
+h2 { font-size: clamp(22px, 3vw, 28px); margin: 40px 0 10px; }
+h3 { font-size: 19px; margin: 0 0 6px; }
+p { margin: 0 0 14px; }
+.lead { font-size: 19px; color: var(--ink-2); max-width: 36em; }
+.eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--leaf); font-weight: 600; margin-bottom: 10px; }
+.prose { max-width: 42em; }
+.prose ul { padding-left: 1.2em; margin: 0 0 14px; }
+.prose li { margin-bottom: 6px; }
+.prose code { font-size: 15px; background: var(--paper-2); padding: 1px 5px; border-radius: 4px; }
+mark { background: var(--mark); color: var(--ink); padding: 0 3px; border-radius: 3px; }
+.draft { background: var(--mark); border: 1px solid #E8D27A; border-radius: 10px; padding: 12px 16px; margin-bottom: 28px; font-size: 15px; max-width: 42em; }
+
+/* Startseite */
+.hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 24px 12px; }
+.hero img.logo { width: min(100%, 460px); height: auto; display: block; margin: 0 0 18px -10px; }
+.stores { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+.store { display: inline-flex; flex-direction: column; padding: 10px 18px; border-radius: 12px; border: 1px solid var(--line); background: #fff; min-width: 170px; }
+.store small { font-size: 12px; color: var(--ink-2); }
+.store b { font-size: 16px; }
+.curve { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px 18px 12px; }
+.curve svg { width: 100%; height: auto; display: block; }
+.curve figcaption { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+.features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
+.feature p { color: var(--ink-2); margin: 0; }
+.feature .tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .04em; color: var(--leaf); background: var(--leaf-soft); padding: 2px 9px; border-radius: 999px; margin-bottom: 8px; }
+.spot { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
+.spot h2 { margin-top: 0; }
+.flow { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.flow li { position: relative; }
+.flow-n { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--red); color: #fff; font-weight: 700; margin-bottom: 10px; }
+.flow p { color: var(--ink-2); margin: 0; }
+.ideas { margin-top: 32px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.idea { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.idea-k { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--leaf); }
+.idea b { font-weight: 600; }
+.idea-d { font-size: 14px; color: var(--ink-2); }
+.fine { font-size: 14px; color: var(--ink-2); margin-top: 18px; max-width: 46em; }
+.promise { margin-top: 56px; background: var(--paper-2); border-radius: 18px; padding: 28px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.promise h3 { font-size: 17px; }
+.promise p { color: var(--ink-2); margin: 0; font-size: 15px; }
+.note { margin-top: 40px; font-size: 14px; color: var(--ink-2); max-width: 46em; }
+.steps { counter-reset: s; list-style: none; padding: 0; max-width: 42em; }
+.steps li { counter-increment: s; position: relative; padding-left: 44px; margin-bottom: 16px; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--leaf-soft); color: var(--leaf); font-weight: 700; display: grid; place-items: center; font-size: 15px; }
+.box { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; max-width: 42em; margin-block: 18px; }
+.faq details { border-bottom: 1px solid var(--line); padding-block: 12px; max-width: 42em; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.faq details p { margin: 10px 0 0; color: var(--ink-2); }
+footer.bottom { border-top: 1px solid var(--line); padding-block: 26px 40px; font-size: 14px; color: var(--ink-2); }
+footer.bottom .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+footer.bottom nav { display: flex; gap: 16px; flex-wrap: wrap; }
+footer.bottom a { color: var(--ink-2); }
+@media (max-width: 760px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .features, .promise, .flow, .ideas { grid-template-columns: minmax(0, 1fr); }
+  body { font-size: 16px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .curve path.line { stroke-dasharray: 900; stroke-dashoffset: 0; animation: draw 1.6s ease-out both; }
+  @keyframes draw { from { stroke-dashoffset: 900; } to { stroke-dashoffset: 0; } }
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a href="index.html" aria-label="Glycia – zur Startseite"><img src="assets/logo.png" alt="Glycia" width="86" height="40"></a>
+  <nav class="main" aria-label="Hauptnavigation"><a href="index.html">Start</a><a href="support.html">Support</a><a href="datenschutz.html" aria-current="page">Datenschutz</a><a href="impressum.html">Impressum</a></nav>
+</div></header>
+<main><div class="wrap">
+<p class="eyebrow">Rechtliches</p><h1>Datenschutzerklärung</h1><div class="prose"><p><em>Stand: Oktober 2026</em></p>
+<p>Diese Datenschutzerklärung informiert dich darüber, welche personenbezogenen Daten die App Glycia verarbeitet, wofür und auf welcher Rechtsgrundlage, und welche Rechte du hast.</p>
+<p>Glycia ist eine App zur Selbstbeobachtung von Ernährung, Bewegung, Schlaf und Zyklus. Sie stellt keine Diagnosen und gibt keine Behandlungsempfehlungen. Glycia richtet sich an Personen ab 16 Jahren.</p>
+<h2>1. Verantwortliche</h2>
+<p>Franziska Hüber</p>
+<p>c/o COCENTER, Koppoldstr. 1, 86551 Aichach, Deutschland</p>
+<p>E-Mail: info@glycia.de</p>
+<p>Datenschutzbeauftragter: Roland Hüber, erreichbar unter info@glycia.de (Betreff „Datenschutz“).</p>
+<h2>2. Welche Daten wir verarbeiten</h2>
+<ul><li>Konto: E-Mail-Adresse und Passwort (nur verschlüsselt als Hash gespeichert), Zeitpunkt der Registrierung und der Einwilligungen.</li><li>Profil: Name (freiwillig), Ernährungsweise, Eiweiß-Ziel, Angaben zum Zyklus, optional Größe, Alter, Aktivität und Kalorienziel.</li><li>Einträge, die du selbst machst: Mahlzeiten und Lebensmittel, Vorlagen und Rezepte, Bewegung und Schritte, Schlaf, Befinden und Notizen, Stress, Zyklustage (z. B. Periode, Temperatur, Tests), Gewicht, Medikamente und Einnahmen, selbst gemessene Glukosewerte, Laborwerte aus Befunden.</li><li>Eigene Lebensmittel, die du anlegst (Angaben von der Verpackung).</li><li>Technische Daten beim Zugriff auf unseren Server: IP-Adresse, Zeitpunkt, Gerät und App-Version. Diese werden nur zum sicheren Betrieb verarbeitet. Für die KI-Erkennung zählen wir außerdem, wie oft du sie pro Tag nutzt (Tageslimit gegen Missbrauch und Kosten, Art. 6 Abs. 1 lit. f DSGVO); diese Zähler werden nach 30 Tagen gelöscht.</li></ul>
+<p>Viele dieser Angaben sind Gesundheitsdaten im Sinne von Art. 9 DSGVO. Glycia berechnet daraus Schätzungen (z. B. eine geschätzte Glukosekurve oder die nächste Periode). Diese Schätzungen werden auf deinem Gerät berechnet und nicht gespeichert.</p>
+<h2>3. Zwecke und Rechtsgrundlagen</h2>
+<ul><li>Bereitstellung der App und deines Kontos: Art. 6 Abs. 1 lit. b DSGVO (Nutzungsvertrag).</li><li>Verarbeitung deiner Gesundheitsdaten: deine ausdrückliche Einwilligung nach Art. 9 Abs. 2 lit. a i. V. m. Art. 6 Abs. 1 lit. a DSGVO. Du erteilst sie nach der Registrierung; ohne sie kann Glycia nicht genutzt werden.</li><li>Foto- und Texterkennung mit KI: deine gesonderte ausdrückliche Einwilligung nach Art. 9 Abs. 2 lit. a DSGVO, die du vor der ersten Nutzung erteilst.</li><li>Sicherer Betrieb, Missbrauchsabwehr: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren Dienst).</li></ul>
+<p>Du kannst jede Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, z. B. indem du dein Konto löschst oder uns schreibst. Die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung bleibt unberührt.</p>
+<p>Bereitstellung: E-Mail-Adresse und Passwort brauchen wir, um dein Konto anzulegen – ohne sie ist die Nutzung nicht möglich. Alle weiteren Angaben sind freiwillig; ohne die Einwilligung in die Verarbeitung von Gesundheitsdaten kann Glycia allerdings nicht genutzt werden. Eine gesetzliche Pflicht, uns Daten bereitzustellen, besteht nicht.</p>
+<h2>4. Empfänger und Dienstleister</h2>
+<p>Wir geben deine Daten nicht weiter und verkaufen sie nicht. Folgende Dienstleister setzen wir ein:</p>
+<ul><li>Supabase (Supabase Pte. Ltd., Singapur): Hosting von Datenbank, Anmeldung und Server-Funktionen. Deine Daten werden in einem Rechenzentrum von Amazon Web Services in Frankfurt am Main gespeichert. Auftragsverarbeitung nach Art. 28 DSGVO. Für Support und Betrieb setzt Supabase Unterauftragnehmer ein, auch in den USA (z. B. Supabase, Inc.); eine Übermittlung in Drittländer ist daher im Einzelfall möglich und durch EU-Standardvertragsklauseln (Art. 46 DSGVO) abgesichert.</li><li>E-Mails zur Anmeldung (Bestätigung der E-Mail-Adresse, Passwort zurücksetzen) versendet derzeit Supabase (siehe oben) in unserem Auftrag; dabei wird nur deine E-Mail-Adresse verarbeitet.</li><li>Anthropic (Anthropic Ireland, Limited, 6th Floor, South Bank House, Barrow Street, Dublin 4, D04 TR29, Irland) – nur wenn du die Foto- oder Texterkennung nutzt und gesondert eingewilligt hast: Das Foto (z. B. Mahlzeit, Nährwerttabelle, Laborbefund) bzw. deine Beschreibung wird über unseren Server an den KI-Dienst Claude übermittelt und ausgewertet. Glycia speichert das Foto nicht, nur die Werte, die du anschließend prüfst und speicherst. Die Verarbeitung erfolgt auch durch die Konzerngesellschaft Anthropic PBC in den USA; dabei werden Daten in die USA übermittelt. Die Übermittlung ist durch EU-Standardvertragsklauseln (Art. 46 DSGVO) abgesichert. Auftragsverarbeitung nach Art. 28 DSGVO. Anthropic nutzt die Daten nicht zum Training seiner KI und löscht sie innerhalb von 30 Tagen; nur bei einem Verdacht auf Missbrauch können sie länger (bis zu 2 Jahre) gespeichert werden.</li><li>Open Food Facts (gemeinnütziger Verein Open Food Facts, 21 rue des Iles, 94100 Saint-Maur-des-Fossés, Frankreich): Wenn du einen Barcode scannst oder nach Markenprodukten suchst, sendet die App nur die Barcode-Nummer bzw. den Suchbegriff direkt an Open Food Facts. Gesundheitsdaten werden nicht übermittelt; Open Food Facts sieht dabei technisch bedingt die IP-Adresse deines Geräts. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (die Funktion, die du aufrufst).</li><li>Apple Health bzw. Google Health Connect – nur wenn du den Abgleich startest und ihn in den Einstellungen deines Geräts erlaubt hast: Glycia liest Schritte, Schlaf und Gewicht der letzten 30 Tage, um deine Einträge zu ergänzen. Glycia schreibt keine Daten in diese Apps. Die gelesenen Werte werden wie deine übrigen Einträge gespeichert. Den Zugriff kannst du jederzeit in den Einstellungen deines Geräts entziehen.</li><li>Apple bzw. Google als Anbieter der App-Stores verarbeiten Daten beim Herunterladen der App in eigener Verantwortung.</li></ul>
+<p>Kopien der Garantien für Übermittlungen in Drittländer (EU-Standardvertragsklauseln) kannst du bei uns unter info@glycia.de anfordern.</p>
+<h2>5. Speicherung auf deinem Gerät und Erinnerungen</h2>
+<p>Damit du angemeldet bleibst, speichert die App deine Anmeldesitzung und einige Einstellungen (z. B. den Zeitpunkt des letzten Abgleichs mit Apple Health bzw. Health Connect) auf deinem Gerät. Das ist für die von dir genutzte App unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG). Beim Abmelden bzw. Löschen der App werden diese Daten entfernt.</p>
+<p>Erinnerungen an Medikamente sind lokale Mitteilungen: Sie werden auf deinem Gerät geplant und angezeigt. Dafür werden keine Daten an einen Server oder an einen Push-Dienst gesendet.</p>
+<h2>6. Keine Werbung, kein Tracking, keine automatisierten Entscheidungen</h2>
+<p>Glycia zeigt keine Werbung, verwendet keine Analyse- oder Tracking-Werkzeuge und erstellt keine Profile zu Werbezwecken. Es gibt keine Weitergabe an Datenhändler.</p>
+<p>Glycia trifft keine automatisierten Entscheidungen im Sinne von Art. 22 DSGVO, die dir gegenüber rechtliche Wirkung entfalten oder dich in ähnlicher Weise erheblich beeinträchtigen. Die App wertet deine Einträge automatisch aus, um dir Schätzungen, Muster und Wochenrückblicke anzuzeigen; diese Auswertungen dienen allein deiner Information, und daraus folgen keine Entscheidungen über dich.</p>
+<h2>7. Kontakt per E-Mail</h2>
+<p>Wenn du uns per E-Mail schreibst, verarbeiten wir deine E-Mail-Adresse, deinen Namen (falls angegeben) und den Inhalt deiner Nachricht, um deine Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn deine Anfrage dein Konto betrifft, sonst Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung).</p>
+<p>Bitte schick uns keine Gesundheitsdaten per E-Mail – für Fragen zu deiner Gesundheit ist deine Ärztin oder dein Arzt die richtige Ansprechperson.</p>
+<p>Unser E-Mail-Postfach wird von der 1&amp;1 Mail &amp; Media GmbH (GMX), Brauerstraße 48, 76135 Karlsruhe, in unserem Auftrag betrieben (Auftragsverarbeitung nach Art. 28 DSGVO). Wir löschen deine E-Mails, sobald deine Anfrage erledigt ist, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+<h2>8. Speicherdauer und Löschung</h2>
+<ul><li>Deine Daten werden gespeichert, solange du dein Konto hast – so kannst du auf vergangene Tage zurückgreifen, und Muster und Analysen werden mit mehr Einträgen aussagekräftiger. Die App zeigt die Einträge der letzten zwei Jahre an; ältere Einträge bleiben gespeichert und sind über den Export abrufbar, bis du sie löschst.</li><li>„Alle Einträge löschen“ (Profil → Daten &amp; Konto) löscht alle Einträge sofort; Konto und Einstellungen bleiben.</li><li>„Konto löschen“ (Profil → Daten &amp; Konto) löscht dein Konto und alle zugehörigen Daten sofort und endgültig.</li><li>Technische Protokolle des Servers werden nach höchstens 7 Tagen gelöscht. In Sicherungskopien können Daten bis zu 7 Tage weiter vorhanden sein, bevor sie überschrieben werden.</li></ul>
+<h2>9. Export</h2>
+<p>Unter Profil → Daten &amp; Konto kannst du alle Daten als Datei (JSON) exportieren und deine Aufzeichnungen als PDF erstellen. Das PDF wird auf deinem Gerät erzeugt; du entscheidest selbst, mit wem du es teilst.</p>
+<h2>10. Sicherheit</h2>
+<p>Die Übertragung erfolgt ausschließlich verschlüsselt (HTTPS). In der Datenbank sorgen Zugriffsregeln dafür, dass nur du deine eigenen Daten lesen und ändern kannst.</p>
+<h2>11. Deine Rechte</h2>
+<ul><li>Auskunft über deine Daten (Art. 15 DSGVO)</li><li>Berichtigung (Art. 16 DSGVO)</li><li>Löschung (Art. 17 DSGVO)</li><li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li><li>Datenübertragbarkeit (Art. 20 DSGVO)</li><li>Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21 DSGVO)</li><li>Widerruf erteilter Einwilligungen jederzeit mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li></ul>
+<p>Schreib uns dafür an info@glycia.de oder wende dich direkt an unseren Datenschutzbeauftragten (Kontakt siehe Abschnitt 1). Vieles kannst du auch direkt in der App erledigen (Export, Löschen). Haben wir deine Daten an Empfänger weitergegeben, teilen wir ihnen eine Berichtigung, Löschung oder Einschränkung mit (Art. 19 DSGVO).</p>
+<h2>12. Widerspruchsrecht (Art. 21 DSGVO)</h2>
+<p>Soweit wir Daten auf Grundlage berechtigter Interessen verarbeiten (Art. 6 Abs. 1 lit. f DSGVO, z. B. Server-Protokolle zur Sicherheit oder die Beantwortung von E-Mails), kannst du jederzeit aus Gründen, die sich aus deiner besonderen Situation ergeben, widersprechen. Wir verarbeiten diese Daten dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe nachweisen, die deine Interessen überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.</p>
+<p>Direktwerbung betreiben wir nicht. Ein formloser Widerspruch an info@glycia.de genügt.</p>
+<h2>13. Beschwerderecht und zuständige Aufsichtsbehörde</h2>
+<p>Du kannst dich bei einer Datenschutz-Aufsichtsbehörde beschweren, z. B. bei der Behörde deines Wohnorts oder bei der für uns zuständigen Aufsichtsbehörde:</p>
+<p>Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)</p>
+<p>Promenade 18, 91522 Ansbach</p>
+<p>www.lda.bayern.de</p>
+<h2>14. Änderungen</h2>
+<p>Wenn sich die App oder die Rechtslage ändert, passen wir diese Datenschutzerklärung an. Die aktuelle Fassung findest du immer in der App unter Profil → Über Glycia.</p><h2>15. Diese Webseite</h2>
+<p>Beim Aufruf dieser Webseite verarbeitet unser Hosting-Anbieter GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, USA) technisch notwendige Daten: IP-Adresse, Zeitpunkt, aufgerufene Seite, zuvor besuchte Seite (Referrer), Browser und Betriebssystem. Das ist nötig, um die Seite auszuliefern und vor Angriffen zu schützen (Art. 6 Abs. 1 lit. f DSGVO). Wie lange GitHub diese Daten speichert, legt GitHub fest; Einzelheiten stehen in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">Datenschutzerklärung von GitHub</a>. Dabei werden Daten in die USA übermittelt; GitHub ist nach dem EU-US Data Privacy Framework zertifiziert (Angemessenheitsbeschluss, Art. 45 DSGVO) und nutzt zusätzlich EU-Standardvertragsklauseln.</p>
+<p>Diese Webseite setzt keine Cookies, verwendet keine Analyse- oder Tracking-Werkzeuge und lädt keine Inhalte von Drittanbietern (keine externen Schriften, Videos oder Karten). Links zu anderen Webseiten (z. B. Instagram) führen zu Angeboten, für deren Datenschutz deren Betreiber verantwortlich ist.</p>
+<h2>16. Instagram</h2>
+<p>Wir betreiben ein Profil auf Instagram (Meta Platforms Ireland Ltd., Merrion Road, Dublin 4, Irland). Wenn du unser Profil besuchst, verarbeitet Meta Daten über dich nach eigenen Regeln. Für die Seiten-Statistiken („Insights“) sind wir mit Meta gemeinsam verantwortlich (Art. 26 DSGVO). Meta hat sich in einer Vereinbarung verpflichtet, die Hauptverantwortung für diese Verarbeitung zu übernehmen und Anfragen zu deinen Rechten zu beantworten; den wesentlichen Inhalt findest du unter <a href="https://www.facebook.com/legal/terms/page_controller_addendum" rel="noopener">facebook.com/legal/terms/page_controller_addendum</a>. Rechtsgrundlage ist unser berechtigtes Interesse, Glycia auf Instagram vorzustellen (Art. 6 Abs. 1 lit. f DSGVO). Bei Meta können Daten auch in die USA übermittelt werden. Mehr dazu in der Datenschutzrichtlinie von Instagram: <a href="https://privacycenter.instagram.com/policy" rel="noopener">privacycenter.instagram.com/policy</a>.</p></div>
+</div></main>
+<footer class="bottom"><div class="wrap">
+  <span>© 2026 Glycia · Tagebuch für Ernährung, Zyklus und Wohlbefinden</span>
+  <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="konto-loeschen.html">Konto löschen</a><a href="support.html">Support</a></nav>
+</div></footer>
+</body>
+</html>

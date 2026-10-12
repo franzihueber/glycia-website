@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Glycia</title>
+<meta name="description" content="Glycia – dein Tagebuch für Ernährung, Zyklus und Wohlbefinden.">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+/* Layout: eine ruhige Spalte wie ein Notizbuch; das Logo setzt Farbe, alles andere bleibt leise. */
+:root {
+  --paper: #FEF9F4;      /* Hintergrund aus dem Logo */
+  --paper-2: #F7EEE6;    /* abgesetzte Flächen */
+  --ink: #2A1F1C;        /* Text, warmes Dunkelbraun */
+  --ink-2: #6B5A54;      /* Nebentext */
+  --line: #EADBD0;       /* Linien */
+  --red: #C21F2A;        /* Akzent: Rot aus dem Schriftzug */
+  --leaf: #4D7A3A;       /* zweiter Akzent: Blattgrün */
+  --leaf-soft: #E5EEDC;
+  --mark: #FFF1B8;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 var(--sans); }
+a { color: var(--red); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--leaf); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 20px; }
+header.top { padding-block: 18px; border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+header.top img { height: 40px; width: auto; display: block; }
+nav.main { display: flex; gap: 18px; flex-wrap: wrap; font-size: 15px; }
+nav.main a { color: var(--ink-2); text-decoration: none; }
+nav.main a:hover, nav.main a[aria-current="page"] { color: var(--red); }
+main { padding-block: 40px 64px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.2; text-wrap: balance; color: var(--ink); }
+h1 { font-size: clamp(30px, 5vw, 46px); margin: 0 0 16px; letter-spacing: -0.01em; }
+h2 { font-size: clamp(22px, 3vw, 28px); margin: 40px 0 10px; }
+h3 { font-size: 19px; margin: 0 0 6px; }
+p { margin: 0 0 14px; }
+.lead { font-size: 19px; color: var(--ink-2); max-width: 36em; }
+.eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--leaf); font-weight: 600; margin-bottom: 10px; }
+.prose { max-width: 42em; }
+.prose ul { padding-left: 1.2em; margin: 0 0 14px; }
+.prose li { margin-bottom: 6px; }
+.prose code { font-size: 15px; background: var(--paper-2); padding: 1px 5px; border-radius: 4px; }
+mark { background: var(--mark); color: var(--ink); padding: 0 3px; border-radius: 3px; }
+.draft { background: var(--mark); border: 1px solid #E8D27A; border-radius: 10px; padding: 12px 16px; margin-bottom: 28px; font-size: 15px; max-width: 42em; }
+
+/* Startseite */
+.hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 24px 12px; }
+.hero img.logo { width: min(100%, 460px); height: auto; display: block; margin: 0 0 18px -10px; }
+.stores { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+.store { display: inline-flex; flex-direction: column; padding: 10px 18px; border-radius: 12px; border: 1px solid var(--line); background: #fff; min-width: 170px; }
+.store small { font-size: 12px; color: var(--ink-2); }
+.store b { font-size: 16px; }
+.curve { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px 18px 12px; }
+.curve svg { width: 100%; height: auto; display: block; }
+.curve figcaption { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+.features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
+.feature p { color: var(--ink-2); margin: 0; }
+.feature .tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .04em; color: var(--leaf); background: var(--leaf-soft); padding: 2px 9px; border-radius: 999px; margin-bottom: 8px; }
+.spot { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
+.spot h2 { margin-top: 0; }
+.flow { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.flow li { position: relative; }
+.flow-n { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--red); color: #fff; font-weight: 700; margin-bottom: 10px; }
+.flow p { color: var(--ink-2); margin: 0; }
+.ideas { margin-top: 32px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.idea { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.idea-k { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--leaf); }
+.idea b { font-weight: 600; }
+.idea-d { font-size: 14px; color: var(--ink-2); }
+.fine { font-size: 14px; color: var(--ink-2); margin-top: 18px; max-width: 46em; }
+.promise { margin-top: 56px; background: var(--paper-2); border-radius: 18px; padding: 28px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.promise h3 { font-size: 17px; }
+.promise p { color: var(--ink-2); margin: 0; font-size: 15px; }
+.note { margin-top: 40px; font-size: 14px; color: var(--ink-2); max-width: 46em; }
+.steps { counter-reset: s; list-style: none; padding: 0; max-width: 42em; }
+.steps li { counter-increment: s; position: relative; padding-left: 44px; margin-bottom: 16px; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--leaf-soft); color: var(--leaf); font-weight: 700; display: grid; place-items: center; font-size: 15px; }
+.box { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; max-width: 42em; margin-block: 18px; }
+.faq details { border-bottom: 1px solid var(--line); padding-block: 12px; max-width: 42em; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.faq details p { margin: 10px 0 0; color: var(--ink-2); }
+footer.bottom { border-top: 1px solid var(--line); padding-block: 26px 40px; font-size: 14px; color: var(--ink-2); }
+footer.bottom .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+footer.bottom nav { display: flex; gap: 16px; flex-wrap: wrap; }
+footer.bottom a { color: var(--ink-2); }
+@media (max-width: 760px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .features, .promise, .flow, .ideas { grid-template-columns: minmax(0, 1fr); }
+  body { font-size: 16px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .curve path.line { stroke-dasharray: 900; stroke-dashoffset: 0; animation: draw 1.6s ease-out both; }
+  @keyframes draw { from { stroke-dashoffset: 900; } to { stroke-dashoffset: 0; } }
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a href="index.html" aria-label="Glycia – zur Startseite"><img src="assets/logo.png" alt="Glycia" width="86" height="40"></a>
+  <nav class="main" aria-label="Hauptnavigation"><a href="index.html" aria-current="page">Start</a><a href="support.html">Support</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></nav>
+</div></header>
+<main><div class="wrap">
+<section class="hero">
+  <div>
+    <img class="logo" src="assets/logo.png" alt="Glycia" width="460" height="215">
+    <h1>Dein Tagebuch für Ernährung, Zyklus und Wohlbefinden</h1>
+    <p class="lead">Sieh vorab, wie flach oder ausgeprägt deine Glukosekurve nach einer Mahlzeit ausfallen kann – und probiere einfache Ideen aus, die sie laut Modell flacher machen. Dazu Schlaf, Bewegung und Zyklus an einem Ort – ohne Werbung.</p>
+    <div class="stores" aria-label="Verfügbarkeit">
+      <span class="store"><small>Bald im</small><b>App Store</b></span>
+      <span class="store"><small>Bald bei</small><b>Google Play</b></span>
+    </div>
+  </div>
+  <figure class="curve" aria-label="Beispiel: geschätzte Glukosekurve aus dem Glycia-Modell für zwei Frühstücks-Varianten">
+<svg viewBox="0 0 420 250" role="img">
+  <defs>
+    <linearGradient id="rg" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#C21F2A"/><stop offset=".6" stop-color="#C21F2A"/><stop offset="1" stop-color="#4D7A3A"/></linearGradient>
+    <linearGradient id="fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#C21F2A" stop-opacity=".14"/><stop offset="1" stop-color="#C21F2A" stop-opacity="0"/></linearGradient>
+  </defs>
+  <title>Geschätzte Glukosekurve (Modell) nach zwei Frühstücks-Varianten</title>
+  <g font-family="-apple-system, Segoe UI, Roboto, sans-serif">
+    <text x="0" y="16" font-size="15" font-weight="700" fill="#2A1F1C">Geschätzte Glukosekurve</text>
+    <rect x="0" y="26" width="168" height="20" rx="10" fill="#F7EEE6"/>
+    <text x="10" y="40" font-size="11" font-weight="700" letter-spacing=".5" fill="#6B5A54">MODELL · KEIN MESSWERT</text>
+  </g>
+  <g stroke="#EADBD0" stroke-width="1">
+    <line x1="40" y1="80" x2="410" y2="80"/><line x1="40" y1="135" x2="410" y2="135"/><line x1="40" y1="190" x2="410" y2="190"/>
+  </g>
+  <g font-size="11" fill="#6B5A54" font-family="-apple-system, Segoe UI, Roboto, sans-serif">
+    <text x="34" y="84" text-anchor="end">140</text><text x="34" y="139" text-anchor="end">115</text><text x="34" y="194" text-anchor="end">90</text>
+    <text x="40" y="212">0</text><text x="133" y="212" text-anchor="middle">45</text><text x="225" y="212" text-anchor="middle">90</text><text x="318" y="212" text-anchor="middle">135</text><text x="410" y="212" text-anchor="end">180</text>
+    <text x="40" y="238">Blutzucker (Glukose) in mg/dl, geschätzt · Minuten nach dem Essen</text>
+  </g>
+  <path d="M40 190 C 80 190, 95 112, 130 108 S 190 152, 240 174 S 340 190, 410 190 L 40 190 Z" fill="url(#fill)"/>
+  <path class="line" d="M40 190 C 80 190, 95 112, 130 108 S 190 152, 240 174 S 340 190, 410 190" fill="none" stroke="url(#rg)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M40 190 C 80 190, 100 138, 135 135 S 200 165, 250 180 S 340 190, 410 190" fill="none" stroke="#4D7A3A" stroke-width="2.5" stroke-dasharray="6 6" stroke-linecap="round"/>
+  <g font-size="12" font-family="-apple-system, Segoe UI, Roboto, sans-serif" fill="#2A1F1C">
+    <line x1="190" y1="32" x2="214" y2="32" stroke="#C21F2A" stroke-width="4" stroke-linecap="round"/><text x="220" y="36" fill="#C21F2A" font-weight="600">Toast mit Marmelade</text>
+    <line x1="190" y1="54" x2="214" y2="54" stroke="#4D7A3A" stroke-width="2.5" stroke-dasharray="6 6" stroke-linecap="round"/><text x="220" y="58" fill="#4D7A3A" font-weight="600">mit Eiern und Gemüse zuerst</text>
+  </g>
+</svg>
+<figcaption>Beispiel: Glycia schätzt aus den Nährwerten zweier Frühstücks-Varianten, wie der Blutzucker (Glukose) verlaufen kann. Das ist eine Modellrechnung zur Orientierung – kein Messwert und keine Aussage über deinen tatsächlichen Blutzucker.</figcaption>
+</figure>
+</section>
+
+<section class="spot" aria-labelledby="spot-h">
+  <p class="eyebrow">Geschätzte Glukosekurve</p>
+  <h2 id="spot-h">Deine Mahlzeit, deine Kurve, deine Ideen</h2>
+  <p class="lead">Glycia schätzt aus den Nährwerten jeder Mahlzeit, wie deine Glukosekurve verlaufen kann – und zeigt dir Ideen, die du direkt ausprobieren kannst. So lernst du spielerisch, welche Kombinationen sich für dich gut anfühlen.</p>
+  <ol class="flow">
+    <li><span class="flow-n">1</span><h3>Mahlzeit erfassen</h3><p>Suchen, Barcode scannen, Rezept oder Vorlage wählen – oder ein Foto machen.</p></li>
+    <li><span class="flow-n">2</span><h3>Kurve sehen</h3><p>Glycia schätzt den Verlauf aus Kohlenhydraten, Eiweiß, Fett und Ballaststoffen: flach, moderat oder ausgeprägt.</p></li>
+    <li><span class="flow-n">3</span><h3>Ideen ausprobieren</h3><p>Tippe eine Idee an und sieh sofort, wie sich die geschätzte Kurve verändert. Was dir gefällt, speicherst du mit.</p></li>
+  </ol>
+  <div class="ideas" aria-label="Beispiele für Ideen in der App">
+    <div class="idea"><span class="idea-k">Tausch-Idee</span><b>1 Scheibe Toast gegen 2 Eier</b><span class="idea-d">mehr Eiweiß, weniger Kohlenhydrate</span></div>
+    <div class="idea"><span class="idea-k">Reihenfolge</span><b>Zuerst Gemüse und Eiweiß, Kohlenhydrate zum Schluss</b><span class="idea-d">gleiche Mahlzeit, andere Reihenfolge</span></div>
+    <div class="idea"><span class="idea-k">Bewegung</span><b>10 Minuten Spaziergang nach dem Essen</b><span class="idea-d">wird als Spaziergang gespeichert</span></div>
+    <div class="idea"><span class="idea-k">Variante</span><b>Etwas weniger Reis, dafür Brokkoli dazu</b><span class="idea-d">nur mit Lebensmitteln aus deiner Mahlzeit</span></div>
+  </div>
+  <p class="fine">Die Kurve ist eine Modellschätzung auf Basis von Studien-Durchschnittswerten, kein Messwert. Deine tatsächliche Reaktion kann deutlich abweichen. Die Ideen sind Anregungen für deinen Alltag, keine Ernährungsberatung.</p>
+</section>
+
+<section class="features" aria-label="Weitere Funktionen">
+  <div class="feature"><span class="tag">Ernährung</span><h3>Mahlzeiten in Sekunden erfassen</h3><p>Auf Basis von über 12.000 Lebensmitteln und Gerichten – mit Barcode-Scan, eigenen Rezepten und Vorlagen. Nährwerte bis zu Mineralstoffen und Vitaminen. Ob du Kalorien angezeigt bekommen willst, entscheidest du.</p></div>
+  <div class="feature"><span class="tag">Alltag</span><h3>Schlaf, Bewegung und Befinden</h3><p>Alles an einem Tag im Blick. Auf Wunsch übernimmt Glycia Schritte, Schlaf und Gewicht aus Apple Health oder Health Connect.</p></div>
+  <div class="feature"><span class="tag">Zyklus</span><h3>Deinen Zyklus festhalten</h3><p>Periodentage, Basaltemperatur und Notizen im Kalender. Dazu Ideen für Ernährung und Alltag passend zur Zyklusphase.</p></div>
+  <div class="feature"><span class="tag">Muster</span><h3>Wochenrückblick und Export</h3><p>Eiweiß, Ballaststoffe, Bewegung und Schlaf im Wochenvergleich. Deine Aufzeichnungen jederzeit als PDF – zum Beispiel für dein nächstes Gespräch in der Praxis.</p></div>
+</section>
+
+<section class="promise" aria-label="Datenschutz">
+  <div><h3>Daten in der EU</h3><p>Deine Einträge liegen in einem Rechenzentrum in Frankfurt am Main und sind nur für dich sichtbar.</p></div>
+  <div><h3>Keine Werbung</h3><p>Kein Tracking, keine Weitergabe, kein Verkauf von Daten. Diese Webseite setzt keine Cookies.</p></div>
+  <div><h3>Du entscheidest</h3><p>Alle Daten exportieren oder löschen – jederzeit direkt in der App.</p></div>
+</section>
+
+<p class="note">Glycia ist eine App zur Selbstbeobachtung. Sie stellt keine Diagnosen und gibt keine Behandlungsempfehlungen. Die Glukosekurven sind Modellschätzungen, keine Messwerte. Die Zyklusanzeige ist nicht zur Verhütung oder Familienplanung geeignet.</p>
+
+</div></main>
+<footer class="bottom"><div class="wrap">
+  <span>© 2026 Glycia · Tagebuch für Ernährung, Zyklus und Wohlbefinden</span>
+  <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="konto-loeschen.html">Konto löschen</a><a href="support.html">Support</a></nav>
+</div></footer>
+</body>
+</html>
