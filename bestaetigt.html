@@ -124,16 +124,32 @@ footer.bottom a { color: var(--ink-2); }
 </div></header>
 <main><div class="wrap">
 <p class="eyebrow">Konto</p>
-<h1 id="t">E-Mail-Adresse bestätigt</h1>
-<p class="lead" id="ok">Danke! Dein Glycia-Konto ist jetzt aktiv. Öffne die App auf deinem Handy und melde dich mit deiner E-Mail-Adresse und deinem Passwort an.</p>
+<h1 id="t">E-Mail-Adresse bestätigen</h1>
+<div id="go">
+  <p class="lead">Tippe auf den Button, um dein Glycia-Konto zu aktivieren.</p>
+  <button class="btn" id="b" type="button">E-Mail-Adresse bestätigen</button>
+</div>
+<p class="lead" id="ok" hidden>Danke! Dein Glycia-Konto ist jetzt aktiv. Öffne die App auf deinem Handy und melde dich mit deiner E-Mail-Adresse und deinem Passwort an.</p>
 <div id="bad" class="msg bad" hidden>Dieser Link ist abgelaufen oder wurde schon benutzt. Versuch dich einfach in der App anzumelden – wenn das klappt, ist alles in Ordnung. Wolltest du dein Passwort zurücksetzen, fordere in der App unter „Passwort vergessen“ einen neuen Link an und öffne ihn innerhalb einer Stunde.</div>
 <p class="note">Fragen? Schreib uns an <a href="mailto:info@glycia.de">info@glycia.de</a>.</p>
 <script>
 (function () {
+  var SB = 'https://hoarfhvocjeyvdwbglmy.supabase.co', KEY = 'sb_publishable_Yhw5sjf6WeslX_V-AO-gMg_gC97SsMv';
   var h = new URLSearchParams(location.hash.slice(1)), q = new URLSearchParams(location.search);
-  var err = h.get('error_code') || q.get('error_code') || h.get('error');
+  var th = q.get('token_hash'), type = q.get('type') || 'email', err = h.get('error_code') || q.get('error_code') || h.get('error');
   if (location.hash || location.search) history.replaceState(null, '', location.pathname);
-  if (err) { document.getElementById('t').textContent = 'Link nicht mehr gültig'; document.getElementById('ok').hidden = true; document.getElementById('bad').hidden = false; }
+  var t = document.getElementById('t'), go = document.getElementById('go'), ok = document.getElementById('ok'), bad = document.getElementById('bad'), b = document.getElementById('b');
+  function done() { t.textContent = 'E-Mail-Adresse bestätigt'; go.hidden = true; ok.hidden = false; }
+  function fail() { t.textContent = 'Link nicht mehr gültig'; go.hidden = true; bad.hidden = false; }
+  if (err) return fail();
+  if (!th) return done();  // ältere Links: Supabase hat schon bestätigt
+  // Erst beim Tippen einlösen – so können Virenscanner im Postfach den Link nicht vorher verbrauchen
+  b.addEventListener('click', function () {
+    b.disabled = true;
+    fetch(SB + '/auth/v1/verify', { method: 'POST', headers: { 'apikey': KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ type: type, token_hash: th }) })
+      .then(function (r) { if (r.ok) done(); else fail(); })
+      .catch(function () { b.disabled = false; alert('Keine Verbindung. Bitte prüfe dein Internet und versuche es erneut.'); });
+  });
 })();
 </script>
 </div></main>

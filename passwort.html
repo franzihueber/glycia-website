@@ -138,11 +138,18 @@ footer.bottom a { color: var(--ink-2); }
 (function () {
   var SB = 'https://hoarfhvocjeyvdwbglmy.supabase.co', KEY = 'sb_publishable_Yhw5sjf6WeslX_V-AO-gMg_gC97SsMv';
   var h = new URLSearchParams(location.hash.slice(1)), q = new URLSearchParams(location.search);
-  var at = h.get('access_token'), err = h.get('error_code') || q.get('error_code') || h.get('error');
+  var th = q.get('token_hash'), at = h.get('access_token'), err = h.get('error_code') || q.get('error_code') || h.get('error');
   if (location.hash || location.search) history.replaceState(null, '', location.pathname);
   var bad = document.getElementById('bad'), ok = document.getElementById('ok'), f = document.getElementById('f'), b = document.getElementById('b');
+  var EXPIRED = 'Der Link ist abgelaufen oder wurde schon benutzt. Fordere in der App unter „Anmelden → Passwort vergessen“ einen neuen Link an und öffne ihn innerhalb einer Stunde.';
   function fail(t) { bad.textContent = t; bad.hidden = false; }
-  if (err || !at) { fail('Der Link ist abgelaufen oder wurde schon benutzt. Fordere in der App unter „Anmelden → Passwort vergessen“ einen neuen Link an und öffne ihn innerhalb einer Stunde.'); return; }
+  function call(path, method, body, token) {
+    var hd = { 'apikey': KEY, 'Content-Type': 'application/json' };
+    if (token) hd['Authorization'] = 'Bearer ' + token;
+    return fetch(SB + '/auth/v1/' + path, { method: method, headers: hd, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { r: r, j: j }; }); });
+  }
+  if (err || (!at && !th)) { fail(EXPIRED); return; }
   f.hidden = false;
   f.addEventListener('submit', function (e) {
     e.preventDefault(); bad.hidden = true;
@@ -150,18 +157,22 @@ footer.bottom a { color: var(--ink-2); }
     if (p1.length < 10) return fail('Das Passwort muss mindestens 10 Zeichen lang sein.');
     if (p1 !== p2) return fail('Die beiden Passwörter stimmen nicht überein.');
     b.disabled = true;
-    fetch(SB + '/auth/v1/user', { method: 'PUT', headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + at, 'Content-Type': 'application/json' }, body: JSON.stringify({ password: p1 }) })
-      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { r: r, j: j }; }); })
+    // Der Link wird erst jetzt eingelöst – so können Virenscanner im Postfach ihn nicht vorher verbrauchen
+    var session = at ? Promise.resolve(at) : call('verify', 'POST', { type: 'recovery', token_hash: th }).then(function (x) {
+      if (!x.r.ok || !x.j.access_token) throw 'expired';
+      at = x.j.access_token; th = null; return at;
+    });
+    session.then(function (token) { return call('user', 'PUT', { password: p1 }, token); })
       .then(function (x) {
         b.disabled = false;
         if (x.r.ok) { f.hidden = true; ok.hidden = false; return; }
         var c = (x.j.error_code || x.j.code || '') + ' ' + (x.j.msg || x.j.message || '');
         if (/same_password|different/i.test(c)) fail('Das neue Passwort muss sich vom bisherigen unterscheiden.');
         else if (/weak|pwned/i.test(c)) fail('Dieses Passwort ist zu schwach oder bekannt geworden. Bitte wähle ein anderes.');
-        else if (x.r.status === 401 || /expired|jwt/i.test(c)) fail('Der Link ist abgelaufen. Bitte fordere in der App einen neuen an.');
+        else if (x.r.status === 401 || /expired|jwt/i.test(c)) fail(EXPIRED);
         else fail('Das hat nicht geklappt. Bitte versuche es noch einmal oder fordere einen neuen Link an.');
       })
-      .catch(function () { b.disabled = false; fail('Keine Verbindung. Bitte prüfe dein Internet und versuche es erneut.'); });
+      .catch(function (e) { b.disabled = false; f.hidden = e === 'expired'; fail(e === 'expired' ? EXPIRED : 'Keine Verbindung. Bitte prüfe dein Internet und versuche es erneut.'); });
   });
 })();
 </script>
