@@ -123,6 +123,15 @@ footer.bottom a { color: var(--ink-2); }
   <nav class="main" aria-label="Hauptnavigation"><a href="index.html" aria-current="page">Start</a><a href="support.html">Support</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></nav>
 </div></header>
 <main><div class="wrap">
+<script>
+/* Links aus Anmelde-Mails (auch von älteren App-Versionen) zur passenden Seite weiterleiten */
+(function () {
+  var h = location.hash.slice(1) || location.search.slice(1);
+  if (!/access_token|error_code|type=/.test(h)) return;
+  var t = new URLSearchParams(h).get('type');
+  location.replace((t === 'recovery' ? 'passwort.html' : 'bestaetigt.html') + '#' + h);
+})();
+</script>
 <section class="hero">
   <div>
     <img class="logo" src="assets/logo.png" alt="Glycia" width="460" height="215">
