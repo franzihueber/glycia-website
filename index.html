@@ -111,6 +111,22 @@ footer.bottom a { color: var(--ink-2); }
   .features, .promise, .flow, .ideas { grid-template-columns: minmax(0, 1fr); }
   body { font-size: 16px; }
 }
+
+.sci { display: grid; gap: 18px; margin: 24px 0; }
+.sci-card { background: #fff; border: 1px solid #EADFD6; border-radius: 16px; padding: 18px 20px; }
+.sci-card h2 { margin: 0 0 6px; font-size: 1.15rem; }
+.sci-row { border-top: 1px solid #EADFD6; padding: 12px 0; }
+.sci-row:first-of-type { border-top: 0; }
+.sci-row b { display: block; }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.pill { font-size: .8rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: #E6ECF8; color: #22407E; }
+.pill.g { background: #E5EEDC; color: #2F5223; } .pill.m { background: #FBEFD9; color: #7A4A08; } .pill.w { background: #F0EAE6; color: #5A4A44; }
+.src { font-size: .88rem; color: #6B5A54; margin: 0; }
+.refs h2 { margin-top: 32px; }
+.ref { margin: 0 0 14px; } .ref small { display: block; color: #6B5A54; }
+.trust { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin: 18px 0; }
+.trust div { background: #fff; border: 1px solid #EADFD6; border-radius: 14px; padding: 14px 16px; }
+.trust b { display: block; font-size: 1.6rem; color: #8B1A22; }
 @media (prefers-reduced-motion: no-preference) {
   .curve path.line { stroke-dasharray: 900; stroke-dashoffset: 0; animation: draw 1.6s ease-out both; }
   @keyframes draw { from { stroke-dashoffset: 900; } to { stroke-dashoffset: 0; } }
@@ -120,7 +136,7 @@ footer.bottom a { color: var(--ink-2); }
 <body>
 <header class="top"><div class="wrap">
   <a href="index.html" aria-label="Glycia – zur Startseite"><img src="assets/logo.png" alt="Glycia" width="86" height="40"></a>
-  <nav class="main" aria-label="Hauptnavigation"><a href="index.html" aria-current="page">Start</a><a href="support.html">Support</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></nav>
+  <nav class="main" aria-label="Hauptnavigation"><a href="index.html" aria-current="page">Start</a><a href="wissenschaft.html">Wissenschaft</a><a href="support.html">Support</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></nav>
 </div></header>
 <main><div class="wrap">
 <script>
