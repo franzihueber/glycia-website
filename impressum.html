@@ -114,7 +114,16 @@ footer.bottom a { color: var(--ink-2); }
 
 .sci { display: grid; gap: 18px; margin: 24px 0; }
 .sci-card { background: #fff; border: 1px solid #EADFD6; border-radius: 16px; padding: 18px 20px; }
-.sci-card h2 { margin: 0 0 6px; font-size: 1.15rem; }
+.sci-card h2 { margin: 0 0 8px; font-family: var(--sans); font-weight: 700; font-size: 17px; letter-spacing: 0; }
+.sci-row b { font-size: 15px; }
+.lead.wide { max-width: none; }
+.ev { display: block; margin-top: 6px; font-size: 12.5px; color: var(--leaf); }
+.ev a { color: inherit; }
+.notin { margin-top: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.notin div { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.notin b { display: block; }
+.notin span { font-size: 14px; color: var(--ink-2); }
+@media (max-width: 640px) { .notin { grid-template-columns: 1fr; } }
 .sci-row { border-top: 1px solid #EADFD6; padding: 12px 0; }
 .sci-row:first-of-type { border-top: 0; }
 .sci-row b { display: block; }

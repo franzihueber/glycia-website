@@ -114,7 +114,16 @@ footer.bottom a { color: var(--ink-2); }
 
 .sci { display: grid; gap: 18px; margin: 24px 0; }
 .sci-card { background: #fff; border: 1px solid #EADFD6; border-radius: 16px; padding: 18px 20px; }
-.sci-card h2 { margin: 0 0 6px; font-size: 1.15rem; }
+.sci-card h2 { margin: 0 0 8px; font-family: var(--sans); font-weight: 700; font-size: 17px; letter-spacing: 0; }
+.sci-row b { font-size: 15px; }
+.lead.wide { max-width: none; }
+.ev { display: block; margin-top: 6px; font-size: 12.5px; color: var(--leaf); }
+.ev a { color: inherit; }
+.notin { margin-top: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.notin div { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.notin b { display: block; }
+.notin span { font-size: 14px; color: var(--ink-2); }
+@media (max-width: 640px) { .notin { grid-template-columns: 1fr; } }
 .sci-row { border-top: 1px solid #EADFD6; padding: 12px 0; }
 .sci-row:first-of-type { border-top: 0; }
 .sci-row b { display: block; }
@@ -201,14 +210,32 @@ footer.bottom a { color: var(--ink-2); }
     <li><span class="flow-n">3</span><h3>Ideen ausprobieren</h3><p>Tippe eine Idee an und sieh sofort, wie sich die geschätzte Kurve verändert. Was dir gefällt, speicherst du mit.</p></li>
   </ol>
   <div class="ideas" aria-label="Beispiele für Ideen in der App">
-    <div class="idea"><span class="idea-k">Tausch-Idee</span><b>1 Scheibe Toast gegen 2 Eier</b><span class="idea-d">mehr Eiweiß, weniger Kohlenhydrate</span></div>
-    <div class="idea"><span class="idea-k">Reihenfolge</span><b>Zuerst Gemüse und Eiweiß, Kohlenhydrate zum Schluss</b><span class="idea-d">gleiche Mahlzeit, andere Reihenfolge</span></div>
-    <div class="idea"><span class="idea-k">Bewegung</span><b>10 Minuten Bewegung nach dem Essen, z. B. Gehen oder Treppen</b><span class="idea-d">wird als Bewegung eingetragen</span></div>
-    <div class="idea"><span class="idea-k">Variante</span><b>Etwas weniger Reis, dafür Brokkoli dazu</b><span class="idea-d">nur mit Lebensmitteln aus deiner Mahlzeit</span></div>
+    <div class="idea"><span class="idea-k">Tausch-Idee</span><b>1 Scheibe Toast gegen 2 Eier</b><span class="idea-d">mehr Eiweiß, weniger Kohlenhydrate</span><span class="ev">Gut belegt: Meta-Analyse mit 154 Vergleichen</span></div>
+    <div class="idea"><span class="idea-k">Reihenfolge</span><b>Zuerst Gemüse und Eiweiß, Kohlenhydrate zum Schluss</b><span class="idea-d">gleiche Mahlzeit, andere Reihenfolge</span><span class="ev">Gut belegt: mehrere Studien bei Gesunden</span></div>
+    <div class="idea"><span class="idea-k">Bewegung</span><b>10 Minuten Bewegung nach dem Essen, z. B. Gehen oder Treppen</b><span class="idea-d">wird als Bewegung eingetragen</span><span class="ev">Gut belegt: Meta-Analyse mit 15 Vergleichen</span></div>
+    <div class="idea"><span class="idea-k">Variante</span><b>Etwas weniger Reis, dafür Brokkoli dazu</b><span class="idea-d">nur mit Lebensmitteln aus deiner Mahlzeit</span><span class="ev">Gut belegt: glykämische Last als Grundlage der Kurve</span></div>
   </div>
   <p class="fine">Die Kurve ist eine Modellschätzung auf Basis von Studien-Durchschnittswerten, kein Messwert. Deine tatsächliche Reaktion kann deutlich abweichen. Die Ideen sind Anregungen für deinen Alltag, keine Ernährungsberatung.</p>
 </section>
 
+<section class="spot" aria-labelledby="ev-h">
+  <p class="eyebrow">Evidenzbasiert</p>
+  <h2 id="ev-h">Jede Annahme mit Quelle – und ehrlich eingestuft</h2>
+  <p class="lead">Glycia rechnet nur mit Faktoren, die Studien stützen. Wie gut jeder einzelne belegt ist, zeigen wir offen – auch, wo wir selbst eine Zahl festlegen mussten.</p>
+  <div class="trust">
+    <div><b>89</b>Quellen, alle von uns geprüft – Studien im Volltext</div>
+    <div><b>25</b>Annahmen mit Einstufung: gut belegt, teilweise belegt oder wenig untersucht</div>
+    <div><b>Alle</b>eigenen Festlegungen offen benannt, etwa wie stark ein Faktor wirkt</div>
+  </div>
+  <h3>Was wir bewusst nicht einrechnen</h3>
+  <div class="notin">
+    <div><b>Stress</b><span>Für gesunde Menschen fehlen belastbare Daten.</span></div>
+    <div><b>Sport vor dem Essen</b><span>Eine Meta-Analyse fand keinen messbaren Effekt auf die Kurve danach.</span></div>
+    <div><b>6 bis 7 Stunden Schlaf</b><span>Die Schlafdauer allein war in einer großen Studie kein eigener Faktor.</span></div>
+    <div><b>Fett und Ballaststoffe als Bremse</b><span>In den Studien senkten sie den Anstieg kaum oder gar nicht.</span></div>
+  </div>
+  <p><a href="wissenschaft.html"><strong>Zu den wissenschaftlichen Grundlagen</strong></a> · <a href="quellen.html">Alle Quellen</a></p>
+</section>
 <section class="features" aria-label="Weitere Funktionen">
   <div class="feature"><span class="tag">Ernährung</span><h3>Mahlzeiten in Sekunden erfassen</h3><p>Auf Basis von über 12.000 Lebensmitteln und Gerichten – mit Barcode-Scan, eigenen Rezepten und Vorlagen. Nährwerte bis zu Mineralstoffen und Vitaminen. Ob du Kalorien angezeigt bekommen willst, entscheidest du.</p></div>
   <div class="feature"><span class="tag">Alltag</span><h3>Schlaf, Bewegung und Befinden</h3><p>Alles an einem Tag im Blick. Auf Wunsch übernimmt Glycia Schritte, Schlaf und Gewicht aus Apple Health oder Health Connect.</p></div>
