@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blutzucker und Zyklus: Was ändert sich wirklich? – Glycia</title>
+<meta name="description" content="Ändert sich der Blutzucker über den Zyklus? Nüchternwerte, Tagesverlauf und Anstieg nach dem Essen – systematische Literaturanalyse, verständlich zusammengefasst.">
+<link rel="canonical" href="https://glycia.de/blutzucker-zyklus.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://glycia.de/blutzucker-zyklus.html">
+<meta property="og:title" content="Blutzucker und Zyklus: Was ändert sich wirklich? – Glycia">
+<meta property="og:description" content="Ändert sich der Blutzucker über den Zyklus? Nüchternwerte, Tagesverlauf und Anstieg nach dem Essen – systematische Literaturanalyse, verständlich zusammengefasst.">
+<meta property="og:image" content="https://glycia.de/assets/apple-touch-icon.png">
+<meta property="og:locale" content="de_DE">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+/* Layout: eine ruhige Spalte wie ein Notizbuch; das Logo setzt Farbe, alles andere bleibt leise. */
+:root {
+  --paper: #FEF9F4;      /* Hintergrund aus dem Logo */
+  --paper-2: #F7EEE6;    /* abgesetzte Flächen */
+  --ink: #2A1F1C;        /* Text, warmes Dunkelbraun */
+  --ink-2: #6B5A54;      /* Nebentext */
+  --line: #EADBD0;       /* Linien */
+  --red: #C21F2A;        /* Akzent: Rot aus dem Schriftzug */
+  --leaf: #4D7A3A;       /* zweiter Akzent: Blattgrün */
+  --leaf-soft: #E5EEDC;
+  --mark: #FFF1B8;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 var(--sans); }
+a { color: var(--red); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--leaf); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 20px; }
+header.top { padding-block: 18px; border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+header.top img { height: 40px; width: auto; display: block; }
+nav.main { display: flex; gap: 18px; flex-wrap: wrap; font-size: 15px; }
+nav.main a { color: var(--ink-2); text-decoration: none; }
+nav.main a:hover, nav.main a[aria-current="page"] { color: var(--red); }
+main { padding-block: 40px 64px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.2; text-wrap: balance; color: var(--ink); }
+h1 { font-size: clamp(30px, 5vw, 46px); margin: 0 0 16px; letter-spacing: -0.01em; }
+h2 { font-size: clamp(22px, 3vw, 28px); margin: 40px 0 10px; }
+h3 { font-size: 19px; margin: 0 0 6px; }
+p { margin: 0 0 14px; }
+.lead { font-size: 19px; color: var(--ink-2); max-width: 36em; }
+.eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--leaf); font-weight: 600; margin-bottom: 10px; }
+.prose { max-width: 42em; }
+.prose ul { padding-left: 1.2em; margin: 0 0 14px; }
+.prose li { margin-bottom: 6px; }
+.prose code { font-size: 15px; background: var(--paper-2); padding: 1px 5px; border-radius: 4px; }
+mark { background: var(--mark); color: var(--ink); padding: 0 3px; border-radius: 3px; }
+.draft { background: var(--mark); border: 1px solid #E8D27A; border-radius: 10px; padding: 12px 16px; margin-bottom: 28px; font-size: 15px; max-width: 42em; }
+
+/* Startseite */
+.hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 24px 12px; }
+.hero img.logo { width: min(100%, 460px); height: auto; display: block; margin: 0 0 18px -10px; }
+.stores { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+.store { display: inline-flex; flex-direction: column; padding: 10px 18px; border-radius: 12px; border: 1px solid var(--line); background: #fff; min-width: 170px; }
+.store small { font-size: 12px; color: var(--ink-2); }
+.store b { font-size: 16px; }
+a.store { text-decoration: none; color: var(--ink); }
+a.store.insta { border-color: var(--red); }
+a.store.insta b { color: var(--red); }
+a.store:hover { background: var(--paper-2); }
+.curve { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px 18px 12px; }
+.curve svg { width: 100%; height: auto; display: block; }
+.curve figcaption { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+.glance { list-style: none; padding: 0; margin: 48px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 28px; }
+.glance li { padding-left: 30px; position: relative; color: var(--ink-2); }
+.glance li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--leaf); font-weight: 700; font-size: 18px; }
+.glance b { display: block; color: var(--ink); }
+.shots { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin: 22px 0 8px; }
+.shots figure { margin: 0; }
+.shots img { width: 100%; height: auto; display: block; border-radius: 22px; border: 1px solid var(--line); box-shadow: 0 6px 24px rgba(42,31,28,.08); background: #fff; }
+.shots figcaption { font-size: 14px; color: var(--ink-2); margin-top: 8px; text-align: center; }
+.verdict { border-collapse: collapse; width: 100%; margin: 14px 0 22px; font-size: 16px; }
+.verdict th, .verdict td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.verdict th { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+.verdict td:last-child { white-space: nowrap; color: var(--leaf); font-weight: 600; }
+.refs-list { font-size: 15px; color: var(--ink-2); padding-left: 20px; }
+.teaser { display: block; margin-top: 28px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper-2); text-decoration: none; color: var(--ink); }
+.teaser b { font-family: var(--serif); font-size: 20px; display: block; margin-bottom: 4px; }
+.teaser span { color: var(--ink-2); }
+@media (max-width: 760px) {
+  .glance { grid-template-columns: minmax(0, 1fr); }
+  .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .verdict thead { display: none; }
+  .verdict tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .verdict td { display: block; border: 0; padding: 2px 0; }
+  .verdict td:first-child { font-weight: 600; color: var(--ink); }
+  .verdict td:last-child { white-space: normal; }
+}
+.topic { margin-top: 34px; }
+.topic h2 { margin-top: 0; }
+.soon { color: var(--ink-2); font-size: 15px; }
+.features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
+.feature p { color: var(--ink-2); margin: 0; }
+.feature .tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .04em; color: var(--leaf); background: var(--leaf-soft); padding: 2px 9px; border-radius: 999px; margin-bottom: 8px; }
+.spot { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
+.spot h2 { margin-top: 0; }
+.flow { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.flow li { position: relative; }
+.flow-n { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--red); color: #fff; font-weight: 700; margin-bottom: 10px; }
+.flow p { color: var(--ink-2); margin: 0; }
+.ideas { margin-top: 32px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.idea { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.idea-k { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--leaf); }
+.idea b { font-weight: 600; }
+.idea-d { font-size: 14px; color: var(--ink-2); }
+.fine { font-size: 14px; color: var(--ink-2); margin-top: 18px; max-width: 46em; }
+.promise { margin-top: 56px; background: var(--paper-2); border-radius: 18px; padding: 28px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.promise h3 { font-size: 17px; }
+.promise p { color: var(--ink-2); margin: 0; font-size: 15px; }
+.note { margin-top: 40px; font-size: 14px; color: var(--ink-2); max-width: 46em; }
+.steps { counter-reset: s; list-style: none; padding: 0; max-width: 42em; }
+.steps li { counter-increment: s; position: relative; padding-left: 44px; margin-bottom: 16px; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--leaf-soft); color: var(--leaf); font-weight: 700; display: grid; place-items: center; font-size: 15px; }
+.box { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; max-width: 42em; margin-block: 18px; }
+.faq details { border-bottom: 1px solid var(--line); padding-block: 12px; max-width: 42em; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.faq details p { margin: 10px 0 0; color: var(--ink-2); }
+footer.bottom { border-top: 1px solid var(--line); padding-block: 26px 40px; font-size: 14px; color: var(--ink-2); }
+footer.bottom .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+footer.bottom nav { display: flex; gap: 16px; flex-wrap: wrap; }
+footer.bottom a { color: var(--ink-2); }
+
+/* Formular (Passwort neu, Bestätigung) */
+.form { max-width: 26em; display: grid; gap: 14px; margin-top: 8px; }
+.form label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+.form input { font: inherit; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); }
+.form input:focus-visible { outline: 3px solid var(--leaf); outline-offset: 1px; }
+.btn { display: inline-block; font: inherit; font-weight: 600; padding: 12px 20px; border-radius: 12px; border: 0; background: var(--red); color: #fff; cursor: pointer; text-decoration: none; text-align: center; }
+.btn:disabled { opacity: .6; cursor: default; }
+.msg { border-radius: 12px; padding: 12px 16px; max-width: 32em; margin-block: 12px; }
+.msg.ok { background: var(--leaf-soft); color: #2F4F22; }
+.msg.bad { background: #FBE3E3; color: #8A1620; }
+[hidden] { display: none !important; }
+@media (max-width: 760px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .features, .promise, .flow, .ideas { grid-template-columns: minmax(0, 1fr); }
+  body { font-size: 16px; }
+}
+
+.sci { display: grid; gap: 18px; margin: 24px 0; }
+.sci-card { background: #fff; border: 1px solid #EADFD6; border-radius: 16px; padding: 18px 20px; }
+.sci-card h2 { margin: 0 0 8px; font-family: var(--sans); font-weight: 700; font-size: 17px; letter-spacing: 0; }
+.sci-row b { font-size: 15px; }
+.lead.wide { max-width: none; }
+.legs { display: grid; grid-template-columns: max-content 1fr; align-items: center; gap: 8px 10px; margin: 6px 0 10px; }
+.legs .pill { justify-self: start; }
+.ev { display: block; margin-top: 6px; font-size: 12.5px; color: var(--leaf); }
+.ev a { color: inherit; }
+.notin { margin-top: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.notin div { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.notin b { display: block; }
+.notin span { font-size: 14px; color: var(--ink-2); }
+@media (max-width: 640px) { .notin { grid-template-columns: 1fr; } }
+.sci-row { border-top: 1px solid #EADFD6; padding: 12px 0; }
+.sci-row:first-of-type { border-top: 0; }
+.sci-row b { display: block; }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.pill { font-size: .8rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: #E6ECF8; color: #22407E; }
+.pill.g { background: #E5EEDC; color: #2F5223; } .pill.m { background: #FBEFD9; color: #7A4A08; } .pill.w { background: #F0EAE6; color: #5A4A44; }
+.src { font-size: .88rem; color: #6B5A54; margin: 0; }
+.refs h2 { margin-top: 32px; }
+.ref { margin: 0 0 14px; } .ref small { display: block; color: #6B5A54; }
+.trust { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin: 18px 0; }
+.trust div { background: #fff; border: 1px solid #EADFD6; border-radius: 14px; padding: 14px 16px; }
+.trust b { display: block; font-size: 1.6rem; color: #8B1A22; }
+@media (prefers-reduced-motion: no-preference) {
+  .curve path.line { stroke-dasharray: 900; stroke-dashoffset: 0; animation: draw 1.6s ease-out both; }
+  @keyframes draw { from { stroke-dashoffset: 900; } to { stroke-dashoffset: 0; } }
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a href="index.html" aria-label="Glycia – zur Startseite"><img src="assets/logo.png" alt="Glycia" width="86" height="40"></a>
+  <nav class="main" aria-label="Hauptnavigation"><a href="index.html">Start</a><a href="wissen.html" aria-current="page">Wissen</a><a href="wissenschaft.html">So rechnet Glycia</a><a href="support.html">Support</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></nav>
+</div></header>
+<main><div class="wrap">
+<p class="eyebrow"><a href="wissen.html">Wissen</a> · Stand 25.11.2026</p>
+<h1>Blutzucker und Zyklus: Was ändert sich wirklich?</h1>
+<p class="lead">„In der zweiten Zyklushälfte ist dein Blutzucker höher“ – das liest man oft. Wir haben die Studien systematisch durchgesehen: Was ändert sich nüchtern, über den Tag und nach dem Essen, und wie groß ist der Unterschied?</p>
+
+<div class="prose">
+<h2>Das Wichtigste in Kürze</h2>
+<ul>
+<li><strong>Nüchtern und im Tagesmittel</strong> ändert sich der Blutzucker über den Zyklus kaum – das zeigen mehrere große Datensätze übereinstimmend.</li>
+<li><strong>Nach dem Essen</strong> ist der Anstieg in der zweiten Zyklushälfte (Lutealphase) im Mittel gleich oder nur wenige Prozent höher. In der größten Studie mit echten Mahlzeiten im Alltag waren es über alle Mahlzeiten rund 4–5 % – im Rahmen des Zufalls.</li>
+<li><strong>Beim Frühstück</strong> fand dieselbe Studie einen größeren Unterschied (etwa 15 %, das sind wenige mg/dl). Diese Studie ist aber noch nicht von unabhängigen Fachleuten begutachtet, und eine Laborstudie mit gleichem Frühstück fand keinen Unterschied.</li>
+<li><strong>Die Wirkung von Insulin</strong> bleibt mit der genauesten Messmethode über den Zyklus gleich. Einfachere Methoden fanden teils eine geringere Wirkung in der zweiten Zyklushälfte.</li>
+<li><strong>Insgesamt:</strong> Der Zyklus verschiebt den Blutzucker wenig. Was und wie viel du isst, wie du schläfst und ob du dich bewegst, macht im Alltag einen viel größeren Unterschied.</li>
+</ul>
+
+<h2>Die typischen Aussagen im Faktencheck</h2>
+</div>
+<table class="verdict">
+<thead><tr><th>Aussage</th><th>Was die Studien zeigen</th><th>Beleglage</th></tr></thead>
+<tbody>
+<tr><td>„In der zweiten Zyklushälfte ist dein Blutzucker höher“</td><td>Nüchtern und im Tagesmittel kaum Unterschied. Große Datensätze mit bis zu 8.700 Frauen fanden keinen Zusammenhang. Die genaueste Alltagsstudie (49 junge Frauen, tägliche Hormontests, fast drei Monate) fand im Tagesmittel etwa 3 mg/dl mehr – das ist sehr wenig.</td><td>kaum Unterschied</td></tr>
+<tr><td>„Nach dem Essen steigt der Blutzucker in der zweiten Zyklushälfte stärker“</td><td>Im Mittel gleich oder wenige Prozent höher. Kleine Laborstudien meist ohne Unterschied der Gesamtmenge, teils mit etwas höherer Spitze.</td><td>wenig untersucht</td></tr>
+<tr><td>„Kurz vor der Periode schwankt der Blutzucker am stärksten“</td><td>Eine große Alltagsstudie fand die größten Schwankungen in den Tagen vor der Periode – der Unterschied war klein, die Studie ist noch nicht begutachtet.</td><td>erste Hinweise</td></tr>
+<tr><td>„In der zweiten Zyklushälfte wirkt Insulin schlechter“</td><td>Mit der genauesten Methode kein Unterschied. Andere, ungenauere Methoden fanden teils eine schwächere Wirkung. Alle Studien sind sehr klein.</td><td>widersprüchlich</td></tr>
+<tr><td>„In der zweiten Zyklushälfte solltest du Kohlenhydrate meiden“</td><td>Ein Nutzen ist nicht belegt. Die Unterschiede sind klein, und Kohlenhydrate gehören in jeder Phase zu einer ausgewogenen Ernährung.</td><td>nicht belegt</td></tr>
+</tbody>
+</table>
+
+<div class="prose">
+<h2>Warum sind die Ergebnisse so uneinheitlich?</h2>
+<p>Die meisten Studien haben nur 6 bis 15 Teilnehmerinnen, messen an einem einzigen Tag je Phase und bestimmen die Phase nur nach dem Kalender. Viele nutzen eine Zuckerlösung statt einer echten Mahlzeit. Bei so kleinen Unterschieden reicht schon der normale Unterschied von Tag zu Tag – etwa durch Schlaf, Stress oder das Abendessen am Vortag –, um Ergebnisse in die eine oder andere Richtung zu verschieben.</p>
+<p>Neue Studien mit Sensoren, die den Gewebezucker rund um die Uhr messen, können viele Mahlzeiten im Alltag auswerten. Die bisher größte (209 Frauen, über 3.800 Mahlzeiten) bestimmte die Zyklusphase allerdings nur aus den Angaben zur letzten Periode, die Teilnehmerinnen waren im Mittel 43 Jahre alt, und jede trug den Sensor nur etwa zwei Wochen.</p>
+
+<h2>Was heißt das für deinen Alltag?</h2>
+<ul>
+<li>Wenn deine Blutzuckerkurve an manchen Tagen vor der Periode etwas höher wirkt, ist das möglich und kein Grund zur Sorge – die Unterschiede sind im Mittel klein.</li>
+<li>Eine eigene „Zyklus-Diät“ ist nicht nötig. Die bekannten Stellschrauben wirken in jeder Phase: Ballaststoffe, Eiweiß zur Mahlzeit, Bewegung nach dem Essen und ausreichend Schlaf.</li>
+<li>Mehr Hunger in der zweiten Zyklushälfte ist häufig. Es darf dann auch etwas mehr sein.</li>
+<li>Bei Fragen zu deinen Blutwerten ist deine Ärztin oder dein Arzt die richtige Ansprechperson.</li>
+</ul>
+
+<h2>So geht Glycia damit um</h2>
+<p>Glycia rechnet in der Lutealphase mit einem um 5 % höheren Anstieg nach jeder Mahlzeit – das passt zur Größe der besten verfügbaren Daten. Weil die Studienlage dünn ist, steht der Faktor in der App als „wenig untersucht“. Einen eigenen Aufschlag fürs Frühstück rechnen wir nicht ein, solange er nur aus einer einzigen, noch nicht begutachteten Studie stammt. Die Zyklusphase ist in Glycia immer eine Schätzung aus deinen Einträgen.</p>
+
+<h2>Wie wir gesucht haben</h2>
+<p>Systematische Suche in Europe PMC (enthält PubMed) am 23. und 24.11.2026 mit 10 Suchanfragen und über 800 Treffern, dazu Websuche nach neuen Studien und Preprints und die Literaturlisten der gelesenen Arbeiten. Eingeschlossen wurden Studien mit gesunden Frauen mit natürlichem Zyklus. Eine systematische Übersichtsarbeit zur Blutzuckerantwort nach dem Essen über den Zyklus gibt es bisher nicht. Zitiert werden nur Arbeiten, die wir im Volltext gelesen haben. Nächste Aktualisierung: sobald die große Alltagsstudie begutachtet erscheint, spätestens Mai 2027.</p>
+
+<h2>Ausgewählte Quellen</h2>
+<ul class="refs-list">
+<li>Aharoni S et al. medRxiv 2026 – Alltagsstudie mit Sensoren, 209 Frauen, 3.815 Mahlzeiten (Preprint, noch nicht begutachtet). <a href="https://doi.org/10.64898/2026.10.14.26365513" rel="noopener">doi:10.64898/2026.10.14.26365513</a></li>
+<li>Fuke et al. Br J Nutr 2026 – gleiche Mahlzeiten morgens, mittags, abends in beiden Phasen. <a href="https://doi.org/10.1017/S0007114526107995" rel="noopener">doi:10.1017/S0007114526107995</a></li>
+<li>Govette A et al. Physiol Rep 2026 – Zuckertest in beiden Phasen. <a href="https://doi.org/10.14814/phy2.70876" rel="noopener">doi:10.14814/phy2.70876</a></li>
+<li>Brennan IM et al. Am J Physiol Gastrointest Liver Physiol 2009 – Zuckergetränk, Magenentleerung und Appetit. <a href="https://doi.org/10.1152/ajpgi.00051.2009" rel="noopener">doi:10.1152/ajpgi.00051.2009</a></li>
+<li>Bonora E et al. Am J Obstet Gynecol 1987 – Zuckertest bei 110 Frauen. <a href="https://doi.org/10.1016/s0002-9378(87)80365-4" rel="noopener">doi:10.1016/s0002-9378(87)80365-4</a></li>
+<li>Yeung EH et al. J Clin Endocrinol Metab 2010 – BioCycle-Studie, 259 Frauen, Nüchternwerte über den Zyklus. <a href="https://doi.org/10.1210/jc.2010-0702" rel="noopener">doi:10.1210/jc.2010-0702</a></li>
+<li>MacGregor KA et al. BMC Med 2023 – UK Biobank, 8.694 Frauen, eine Blutprobe je Frau. <a href="https://doi.org/10.1186/s12916-023-03195-w" rel="noopener">doi:10.1186/s12916-023-03195-w</a></li>
+<li>Lin G et al. npj Digit Med 2023 – Sensoren und tägliche Hormontests im Alltag über rund drei Monate. <a href="https://doi.org/10.1038/s41746-023-00884-x" rel="noopener">doi:10.1038/s41746-023-00884-x</a></li>
+<li>Yki-Järvinen H. J Clin Endocrinol Metab 1984 – Insulinwirkung mit der genauesten Methode. <a href="https://doi.org/10.1210/jcem-59-2-350" rel="noopener">doi:10.1210/jcem-59-2-350</a></li>
+<li>Toth EL et al. J Clin Endocrinol Metab 1987 – Insulinwirkung in drei Zyklusphasen. <a href="https://doi.org/10.1210/jcem-64-1-74" rel="noopener">doi:10.1210/jcem-64-1-74</a></li>
+<li>Valdes CT, Elkind-Hirsch KE. J Clin Endocrinol Metab 1991 – Insulinwirkung mit einem einfacheren Verfahren. <a href="https://doi.org/10.1210/jcem-72-3-642" rel="noopener">doi:10.1210/jcem-72-3-642</a></li>
+<li>Blum CA et al. J Clin Endocrinol Metab 2005 – 15 Messungen in einem Zyklus. <a href="https://doi.org/10.1210/jc.2005-0231" rel="noopener">doi:10.1210/jc.2005-0231</a></li>
+<li>Schieren A et al. Horm Metab Res 2024 – Übersicht über Studien seit 1967. <a href="https://doi.org/10.1055/a-2273-5602" rel="noopener">doi:10.1055/a-2273-5602</a></li>
+</ul>
+</div>
+<p class="note">Diese Seite fasst Studien allgemein zusammen und ersetzt keine ärztliche Beratung. Glycia ist eine App zur Selbstbeobachtung und stellt keine Diagnosen.</p>
+
+</div></main>
+<footer class="bottom"><div class="wrap">
+  <span>© 2026 Glycia · Tagebuch für Ernährung, Blutzucker, Zyklus und Wohlbefinden</span>
+  <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="konto-loeschen.html">Konto löschen</a><a href="support.html">Support</a><a href="https://www.instagram.com/glycia.app/" rel="noopener">Instagram</a></nav>
+</div></footer>
+</body>
+</html>
